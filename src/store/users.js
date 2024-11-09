@@ -17,7 +17,7 @@ export const usersSlice = createSlice({
     name: 'users',
     initialState: {
         type: 'Guest',
-        users: []
+        users: [{name: 'Pierre'}]
     },
     reducers: {
         setType: (state, action) => {
