@@ -1,6 +1,7 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {addMovie} from './store/movies.js';
 import {setType, fetchUser} from './store/users.js';
+import {useEffect} from "react";
 
 const App = () => {
     const movies = useSelector((state) => state.movies.list);
@@ -8,6 +9,17 @@ const App = () => {
 
     //const all = useSelector(state => state);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchUser())
+            .unwrap()
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    },[]) // To run the useEffect one time when the application loads
 
     return (
         <>
