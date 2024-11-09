@@ -22,8 +22,8 @@ const App = () => {
             <hr/>
             <button onClick={() => dispatch(addMovie({id: 3, title: 'Batman Return'}))}>Add movie</button>
             <hr/>
-            {/*<h3>User type:{users.type}</h3>*/}
-            {/*<button onClick={() => dispatch(setType('Admin'))}>Set User Type</button>*/}
+            <h3>User type:{users.type}</h3>
+            <button onClick={() => dispatch(setType('Admin'))}>Set User Type</button>
             <ul>
                 {users.users ?
                     users.users.map((user, index) => (

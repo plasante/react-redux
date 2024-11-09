@@ -17,7 +17,7 @@ export const usersSlice = createSlice({
     name: 'users',
     initialState: {
         type: 'Guest',
-        users: [{name: 'Pierre'}]
+        users: []
     },
     reducers: {
         setType: (state, action) => {
@@ -27,14 +27,14 @@ export const usersSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchUser.pending, () => {
-                console.log('pending');
+                console.log('Fetching users');
             })
             .addCase(fetchUser.fulfilled, (state,action) => {
-                console.log('fulfilled');
+                console.log('Fetched users');
                 state.users = action.payload;
             })
             .addCase(fetchUser.rejected, () => {
-                console.log('rejected');
+                console.log('Error Fetching users');
             })
     }
 });
