@@ -24,14 +24,18 @@ const App = () => {
             <hr/>
             <h3>User type:{users.type}</h3>
             <button onClick={() => dispatch(setType('Admin'))}>Set User Type</button>
-            <ul>
-                {users.users ?
-                    users.users.map((user, index) => (
-                        <li key={index}>{user.name}</li>
-                    ))
-                :null}
-            </ul>
-            <button onClick={()=>dispatch(fetchUser())}>
+            <div>
+                {users.loading ? 'Loading Users' :
+                    <ul>
+                        {users.users ?
+                            users.users.map((user, index) => (
+                                <li key={index}>{user.name}</li>
+                            ))
+                            : null}
+                    </ul>
+                }
+            </div>
+            <button onClick={() => dispatch(fetchUser())}>
                 Get Users
             </button>
         </>
